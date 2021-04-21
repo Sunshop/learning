@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>my-vue</title>
+  </head>
+  <body>
+    <div id="app">
+      <h2>{{ title }}</h2>
+      <input v-model="name" />
+      <h1>{{ name }}</h1>
+      <button v-on:click="click">click</button>
+    </div>
+  </body>
+
+  <script src="observer.js"></script>
+  <script src="watcher.js"></script>
+  <script src="compile.js"></script>
+  <script src="index.js"></script>
+
+  <script type="text/javascript">
+    let self = new myVue({
+      el: '#app',
+      data: {
+        title: 'my vue',
+        name: 'input'
+      },
+      methods: {
+        click() {
+          this.title = 'already click!'
+        },
+      },
+      mounted: function () {
+        setTimeout(() => {
+          this.title = 'my vue setTimeout';
+        }, 1000);
+      }
+    });
+  </script>
+</html>

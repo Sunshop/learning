@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>长列表</title>
+  </head>
+  <body>
+    <div>
+      <div id="app">
+        {{ message }}
+        {{ m1 }}
+        {{ m2 }}
+        {{ m3 }}
+      </div>
+      <ul id="container"></ul>
+    </div>
+    <script src="http://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+      // let arr = Array.from({ length: 100000 }, () => 'jack');
+      // console.log(arr);
+      var app = new Vue({
+        el: '#app',
+        data: {
+          message: 'Hello Vue!'
+        },
+        mounted() {
+          setTimeout(() => {
+            this.message = 'ashdka'
+          }, 2000)
+        },
+        computed: {
+          m1: function() {
+            return this.message + '1';
+          },
+          m2: function(){
+            return this.m1 + '2';
+          },
+          m3: function() {
+            return this.m2 + '3';
+          }
+        },
+      })
+
+      
+    </script>
+  </body>
+</html>
